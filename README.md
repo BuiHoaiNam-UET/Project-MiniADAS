@@ -1,7 +1,7 @@
 # Project-MiniADAS
 AN ADVANCED DRIVER ASSISTANCE SYSTEM
 # MiniADAS - Hệ thống phát hiện và cảnh báo tiền va chạm
-Đồ án môn học: Kỹ thuật Vi xử lý - UET
+Project môn học hệ thống nhúng - UET
 Thành viên:
 - Bùi Hoài Nam (23021868)
 - Hoàng Bùi Thành Long (23021858)
