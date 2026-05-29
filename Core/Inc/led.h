@@ -4,8 +4,8 @@
 #include "main.h"
 
 /* Cấu hình phần cứng cho LED cảnh báo (PC0) */
-#define LED_GPIO_PORT      GPIOC
-#define LED_PIN            0U
+#define LED_GPIO_PORT GPIOC
+#define LED_PIN 0
 
 /* Khởi tạo GPIO Output cho LED */
 void LED_Init(void);
