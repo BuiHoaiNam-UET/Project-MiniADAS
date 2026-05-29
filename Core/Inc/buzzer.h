@@ -5,15 +5,15 @@
 #include <stdint.h>
 
 /* Cấu hình phần cứng cho Buzzer (PC3) */
-#define BUZZER_GPIO_PORT              GPIOC
-#define BUZZER_PIN                    3U
+#define BUZZER_GPIO_PORT GPIOC
+#define BUZZER_PIN 3
 
 /* Ngưỡng khoảng cách kích hoạt còi cảnh báo (cm) */
 #define BUZZER_DANGER_DISTANCE_CM     10.0f
 
 /* Chu kỳ nhịp On/Off của còi (ms) */
-#define BUZZER_BEEP_ON_TIME_MS        100U
-#define BUZZER_BEEP_OFF_TIME_MS       100U
+#define BUZZER_BEEP_ON_TIME_MS 100
+#define BUZZER_BEEP_OFF_TIME_MS 100
 
 /* Khởi tạo GPIO Output cho Buzzer */
 void Buzzer_Init(void);
