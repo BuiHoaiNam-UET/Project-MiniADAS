@@ -1,7 +1,7 @@
 #include "button.h"
 
 /* Chân User Button (PC13) */
-#define USER_BUTTON_PIN    13U
+#define USER_BUTTON_PIN 13
 
 /* Hàm delay thô chống dội (Software debounce) */
 static void Button_Delay(volatile uint32_t time)
@@ -15,20 +15,20 @@ static void Button_Delay(volatile uint32_t time)
 void Button_Init(void)
 {
     /* Enable clock GPIOC */
-    RCC->AHB1ENR |= (1U << 2);
+    RCC->AHB1ENR |= (1 << 2);
 
     /* Cấu hình PC13 Mode: Input (00) */
-    GPIOC->MODER &= ~(3U << (USER_BUTTON_PIN * 2U));
+    GPIOC->MODER &= ~(3 << (USER_BUTTON_PIN * 2));
 
     /* Không dùng trở kéo nội (Pull-up đã có sẵn trên mạch Nucleo) */
-    GPIOC->PUPDR &= ~(3U << (USER_BUTTON_PIN * 2U));
+    GPIOC->PUPDR &= ~(3 << (USER_BUTTON_PIN * 2));
 }
 
 /* Đọc trạng thái vật lý (Raw state) của nút */
 uint8_t Button_Read(void)
 {
     /* Đọc giá trị tại bit 13 của thanh ghi IDR */
-    uint8_t status = (GPIOC->IDR >> USER_BUTTON_PIN) & 0x1U;
+    uint8_t status = (GPIOC->IDR >> USER_BUTTON_PIN) & 0x1;
     return status;
 }
 
@@ -50,10 +50,10 @@ uint8_t Button_IsPressedEvent(void)
         if (current == BUTTON_RELEASED)
         {
             prev = current;
-            return 1U;
+            return 1;
         }
     }
 
     prev = current;
-    return 0U;
+    return 0;
 }
