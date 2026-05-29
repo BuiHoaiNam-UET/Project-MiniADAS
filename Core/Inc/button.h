@@ -5,8 +5,8 @@
 #include <stdint.h>
 
 /* User Button (PC13) - Active-low */
-#define BUTTON_PRESSED     0U
-#define BUTTON_RELEASED    1U
+#define BUTTON_PRESSED 0
+#define BUTTON_RELEASED 1
 
 /* Khởi tạo GPIO cho nút nhấn PC13 */
 void Button_Init(void);
