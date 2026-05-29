@@ -1,33 +1,33 @@
 #include "buzzer.h"
 
 /* Trạng thái hiện tại của còi (0: Tắt, 1: Bật) */
-static uint8_t buzzer_state = 0U;
+static uint8_t buzzer_state = 0;
 
 /* Lưu mốc thời gian chuyển trạng thái để tạo nhịp (ms) */
-static uint32_t buzzer_last_change_time = 0U;
+static uint32_t buzzer_last_change_time = 0;
 
 /* Khởi tạo GPIO cho Buzzer (PC3) */
 void Buzzer_Init(void)
 {
     /* Enable clock GPIOC */
-    RCC->AHB1ENR |= (1U << 2);
+    RCC->AHB1ENR |= (1 << 2);
 
     /* Cấu hình PC3 Mode: Output (01) */
-    BUZZER_GPIO_PORT->MODER &= ~(3U << (BUZZER_PIN * 2U));
-    BUZZER_GPIO_PORT->MODER |=  (1U << (BUZZER_PIN * 2U));
+    BUZZER_GPIO_PORT->MODER &= ~(3 << (BUZZER_PIN * 2));
+    BUZZER_GPIO_PORT->MODER |=  (1 << (BUZZER_PIN * 2));
 
     /* Cấu hình Output Type: Push-Pull */
-    BUZZER_GPIO_PORT->OTYPER &= ~(1U << BUZZER_PIN);
+    BUZZER_GPIO_PORT->OTYPER &= ~(1 << BUZZER_PIN);
 
     /* Cấu hình Output Speed: Low */
-    BUZZER_GPIO_PORT->OSPEEDR &= ~(3U << (BUZZER_PIN * 2U));
+    BUZZER_GPIO_PORT->OSPEEDR &= ~(3 << (BUZZER_PIN * 2));
 
     /* Không dùng điện trở kéo (No Pull-up/Pull-down) */
-    BUZZER_GPIO_PORT->PUPDR &= ~(3U << (BUZZER_PIN * 2U));
+    BUZZER_GPIO_PORT->PUPDR &= ~(3 << (BUZZER_PIN * 2));
 
     /* Khởi tạo trạng thái ban đầu: Tắt */
     Buzzer_Off();
-    buzzer_state = 0U;
+    buzzer_state = 0;
     buzzer_last_change_time = HAL_GetTick();
 }
 
@@ -35,16 +35,16 @@ void Buzzer_Init(void)
 void Buzzer_On(void)
 {
     /* Set bit PC3 */
-    BUZZER_GPIO_PORT->ODR |= (1U << BUZZER_PIN);
-    buzzer_state = 1U;
+    BUZZER_GPIO_PORT->ODR |= (1 << BUZZER_PIN);
+    buzzer_state = 1;
 }
 
 /* Tắt Buzzer */
 void Buzzer_Off(void)
 {
     /* Clear bit PC3 */
-    BUZZER_GPIO_PORT->ODR &= ~(1U << BUZZER_PIN);
-    buzzer_state = 0U;
+    BUZZER_GPIO_PORT->ODR &= ~(1 << BUZZER_PIN);
+    buzzer_state = 0;
 }
 
 /* Đảo trạng thái Buzzer (Toggle) */
