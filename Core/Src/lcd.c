@@ -6,10 +6,10 @@
 extern I2C_HandleTypeDef hi2c1;
 
 /* Các bit mask điều khiển qua module I2C PCF8574 */
-#define LCD_RS          0x01 // Register Select (0: Lệnh, 1: Ký tự)
-#define LCD_RW          0x02 // Read/Write (Mặc định 0: Ghi)
-#define LCD_EN          0x04 // Enable (Chân tạo xung chốt)
-#define LCD_BL          0x08 // Backlight (Đèn nền)
+#define LCD_RS 0x01 // Register Select (0: Lệnh, 1: Ký tự)
+#define LCD_RW 0x02 // Read/Write (Mặc định 0: Ghi)
+#define LCD_EN 0x04 // Enable (Chân tạo xung chốt)
+#define LCD_BL 0x08 // Backlight (Đèn nền)
 
 /* Gửi 1 byte dữ liệu vật lý qua bus I2C (Timeout 100ms) */
 static void LCD_WriteI2C(uint8_t data)
